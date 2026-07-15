@@ -26,7 +26,10 @@ app = FastAPI(
 # app.add_middleware(SecurityHeadersMiddleware)
 # app.add_middleware(RateLimitMiddleware, requests_per_minute=60)
 # app.add_middleware(LoggingMiddleware)
+print(settings.backend_cors_origins)
+logger.info(f"CORS origins: {settings.backend_cors_origins}")
 app.add_middleware(
+    
     CORSMiddleware,
     allow_origins=settings.backend_cors_origins,
     allow_credentials=True,
